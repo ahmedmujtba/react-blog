@@ -22,16 +22,27 @@ const Home = () => {
       id: 3,
     },
   ]);
+
+  const [name, setName] = useState("ahmed");
+
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => blog.id !== id);
     setBlogs(newBlogs);
   };
   useEffect(() => {
-    console.log("use effect ran");
-  });
+    console.log(name);
+  }, [name]);
   return (
     <div className="home">
       <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
+      <button
+        onClick={() => {
+          setName("mujtba");
+        }}
+      >
+        change name
+      </button>
+      <p>{name}</p>
     </div>
   );
 };
