@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
-  const [blogs, setBlogs] = useState(null);
+  const [projects, setProjects] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
+    const controller = new AbortController();
+    fetch(url, { signal: controller.signal })
       .then((res) => {
         if (!res.ok) {
           throw Error("Sorry! Could not fetch the data");
@@ -14,17 +15,22 @@ const useFetch = (url) => {
         return res.json();
       })
       .then((data) => {
-        setBlogs(data);
+        setProjects(data);
         setIsLoading(false);
         setError(null);
       })
       .catch((err) => {
-        setError(err.message);
-        setIsLoading(false);
+        if (err.name === "AbortError") {
+          console.log("fetch aborted");
+        } else {
+          setError(err.message);
+          setIsLoading(false);
+        }
       });
+    return () => controller.abort();
   }, [url]);
 
-  return { blogs, isLoading, error };
+  return { projects, isLoading, error };
 };
 
 export default useFetch;
