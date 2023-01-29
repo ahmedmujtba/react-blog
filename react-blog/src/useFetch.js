@@ -16,12 +16,12 @@ const useFetch = (url) => {
       })
       .then((data) => {
         setProjects(data);
+
         setIsLoading(false);
         setError(null);
       })
       .catch((err) => {
         if (err.name === "AbortError") {
-          console.log("fetch aborted");
         } else {
           setError(err.message);
           setIsLoading(false);

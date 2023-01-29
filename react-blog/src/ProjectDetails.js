@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 
-const Projects = () => {
+const ProjectDetails = () => {
   const { id } = useParams();
   return (
-    <div className="projects">
+    <div className="project-details">
       <h2>Project {id}</h2>
     </div>
   );
 };
 
-export default Projects;
+export default ProjectDetails;
