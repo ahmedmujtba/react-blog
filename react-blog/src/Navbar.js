@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h1>Ahmed Mujtba</h1>
+      <img
+        src="./assets/logo.png"
+        alt="website-logo"
+        width={100}
+        height="100"
+      ></img>
+
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/about">About me</Link>

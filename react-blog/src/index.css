@@ -33,6 +33,9 @@
   margin: 40px auto;
   padding: 20px;
 }
+.home {
+  padding: 10px;
+}
 .home button {
   background-color: #1f51ff;
   color: white;

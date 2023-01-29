@@ -16,7 +16,6 @@ const ProjectsList = () => {
             <div className="projects-preview" key={project.id}>
               <Link to={`/myprojects/${project.id}`}>
                 <h2>{project.title}</h2>
-                <p>{project.body}</p>
                 <p>Creator: {project.author}</p>
               </Link>
             </div>
