@@ -5,6 +5,9 @@
   font-family: "Quicksand";
   color: black;
 }
+body {
+  background-color: whitesmoke;
+}
 .navbar {
   padding: 20px;
   display: flex;
